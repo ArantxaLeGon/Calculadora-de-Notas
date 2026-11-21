@@ -1,0 +1,109 @@
+/* ===== Variables: un solo lugar para cambiar colores ===== */
+:root {
+  --color-fondo: #f4f6f8;
+  --color-tarjeta: #ffffff;
+  --color-primario: #2563eb;
+  --color-primario-hover: #1d4ed8;
+  --color-texto: #1f2937;
+  --color-borde: #cbd5e1;
+  --color-error: #dc2626;
+  --radio: 8px;
+}
+
+/* ===== Reset básico ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+/* ===== Estructura ===== */
+.contenedor {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 { text-align: center; margin-bottom: 20px; }
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  padding: 20px;
+  border-radius: var(--radio);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+/* ===== Formularios ===== */
+label { display: block; margin: 12px 0 4px; font-weight: 600; }
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+}
+
+input:focus { outline: 2px solid var(--color-primario); }
+
+button {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--radio);
+  background: var(--color-primario);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover { background: var(--color-primario-hover); }
+
+/* ===== Utilidades de estado ===== */
+/* Clase para mostrar/ocultar secciones. !important garantiza que gane
+   sobre cualquier otro "display" definido en el CSS. */
+.oculto { display: none !important; }
+
+/* Campo con error (borde rojo) */
+input.error { border-color: var(--color-error); }
+
+/* Texto de mensajes de error; vacío = no ocupa espacio visible */
+.mensaje-error {
+  color: var(--color-error);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  margin-top: 4px;
+}
+/* ===== Fase 4: campos dinámicos ===== */
+#contenedor-notas { margin-top: 16px; }
+
+.fila-nota {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Mensajes de error debajo de cada campo, sin saltos de diseño */
+.campo .mensaje-error { min-height: 1.2em; }
+/* ===== Fase 5: resultado e historial ===== */
+.aprobado { color: #16a34a; }
+.reprobado { color: var(--color-error); }
+
+#resultado h3 { margin-top: 16px; }
+
+.lista-historial { list-style: none; margin-top: 8px; }
+
+.lista-historial li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 0.95rem;
+}
+
+.historial-fecha { color: #64748b; font-size: 0.85rem; }

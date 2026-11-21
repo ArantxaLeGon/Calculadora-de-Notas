@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Hace que el diseño se adapte a celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Notas Definitivas</title>
+  <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon en línea: evita el error 404 de /favicon.ico -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <main class="contenedor">
+    <h1>Calculadora de Notas</h1>
+
+    <!-- ESTADO: ACCESO (visible al inicio) -->
+    <section id="form-acceso" class="tarjeta">
+      <h2>Ingresa con tu documento</h2>
+      <label for="input-documento">Documento de identidad</label>
+      <input type="text" id="input-documento" inputmode="numeric"
+             placeholder="Solo números (5 a 12 dígitos)" autocomplete="off">
+      <p id="error-documento" class="mensaje-error"></p>
+      <button id="btn-ingresar" type="button">Ingresar</button>
+    </section>
+
+    <!-- ESTADO: CONFIGURACIÓN + INGRESO DE DATOS (oculto al inicio) -->
+    <section id="panel-notas" class="tarjeta oculto">
+      <h2>Configura tus notas</h2>
+      <label for="input-cantidad">¿Cuántas notas vas a ingresar?</label>
+      <input type="number" id="input-cantidad" min="1" max="10" step="1"
+             placeholder="Entre 1 y 10">
+      <p id="error-cantidad" class="mensaje-error"></p>
+      <button id="btn-generar" type="button">Generar campos</button>
+
+      <!-- Fase 4 llenará este contenedor con un par valor/porcentaje por nota -->
+      <div id="contenedor-notas"></div>
+      <p id="error-porcentaje" class="mensaje-error"></p>
+      <button id="btn-calcular" type="button" class="oculto">Calcular</button>
+    </section>
+
+    <!-- ESTADO: RESULTADO + HISTORIAL (oculto al inicio) -->
+    <section id="resultado" class="tarjeta oculto">
+      <h2>Resultado</h2>
+      <p>Definitiva: <strong id="valor-definitiva"></strong></p>
+      <p>Estado: <strong id="valor-estado"></strong></p>
+
+      <h3>Historial</h3>
+      <div id="historial"></div>
+    </section>
+  </main>
+
+  <!-- type="module" habilita import/export en ES6 -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
